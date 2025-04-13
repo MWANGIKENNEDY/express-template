@@ -21,12 +21,14 @@ model Car {
   price        Float
   fuelType     String
   transmission String
+  featured     Boolean    @default(false)
+  mileage      Int
+  viewedBy     Int        @default(0)
   bodyType     String
   color        String?
   description  String?
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
-
   images       CarImage[] // Relationship
 }
 
@@ -35,5 +37,5 @@ model CarImage {
   carId String
   url   String
 
-  car   Car    @relation(fields: [carId], references: [id], onDelete: Cascade)
+  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
 }

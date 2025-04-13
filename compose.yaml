@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+      args:
+        DATABASE_URL: ${DATABASE_URL} # Passed from host's .env
+    env_file:
+      - .env  # For runtime environment variables
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
