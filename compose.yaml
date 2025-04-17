@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   server:
@@ -6,8 +6,9 @@ services:
       context: .
       args:
         DATABASE_URL: ${DATABASE_URL} # Passed from host's .env
+    image: express-server:dev
     env_file:
-      - .env  # For runtime environment variables
+      - .env.development.local # For runtime environment variables
     environment:
       NODE_ENV: development
     ports:
