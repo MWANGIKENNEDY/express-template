@@ -50,6 +50,8 @@ export const getOneCarById = async (
 ) => {
   const { id } = req.params;
 
+  console.log("getting a car be id")
+
   try {
     const car = await prisma.car.findUnique({
       where: { id },
